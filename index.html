@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>升序降序</title>
+</head>
+<body>
+	<script>
+		// 升序 降序
+		var arr = [20,30,25,46,90,9,85,91];
+		// sort(arr,'<');
+		// sort(arr,'>');
+		// function sort(arr,type = '<')   //不给值才起作用
+		sort(arr);
+		function sort(arr,type){         //带有默认值的参数写到最后
+			// if(type==undefined){
+			// 	type = '<';
+			// }
+			
+			type = type == undefined ? '<' : type;
+			// type = type || '<';
+			if(type =='<'){
+				sortUp(arr);
+			}else if(type == '>'){
+				sortDown(arr);
+			}
+		}
+
+        // 从大到小排序   降序
+
+		// sortDown(arr);
+		function sortDown(arr){
+		    for(var i=0;i<arr.length;i++){
+		        for(var j=i+1;j<arr.length;j++){
+		            if(arr[i]<arr[j]){
+		                var t=arr[i];
+		                arr[i]=arr[j];
+		                arr[j]=t;
+		            }
+		        }
+		    }
+		    console.log(arr);
+		}
+
+		// 从小到大排序  升序
+		// var arr = [20,30,25,46,90,9,85,91];
+		// sortUp(arr);
+		function sortUp(arr){
+			for(var i=0;i<arr.length;i++){
+			    for(var j=i+1;j<arr.length;j++){
+			        if(arr[i]>arr[j]){
+			            var t=arr[i];
+			            arr[i]=arr[j];
+			            arr[j]=t;
+			        }
+			    }
+			}
+			console.log(arr);
+		}
+	</script>
+</body>
+</html>
